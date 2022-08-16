@@ -1,14 +1,14 @@
 window.addEventListener('load', function() {
 
-	let step = 0;// смена хода между игроками
-	let values = ['X', '0'];// крестик и нолик
-	let finalResult = ['Вы не дали боту выиграть - поражение', 'Ура! Бот Победил', 'Ничья'];
-	let hasWinner = false;
-	let currentStep = 0;// текущий ход от начала игры
-	let maxStep = 9;
-	let end = false;
-	let cells = document.querySelectorAll('.item__cell');// ячейки игры
-	let outResult = document.querySelector('h2');// вывод результата игры
+	var step = 0;// смена хода между игроками
+	var values = ['X', '0'];// крестик и нолик
+	var finalResult = ['Вы не дали боту выиграть - поражение', 'Ура! Бот Победил', 'Ничья'];
+	var hasWinner = false;
+	var currentStep = 0;// текущий ход от начала игры
+	var maxStep = 9;
+	var end = false;
+	var cells = document.querySelectorAll('.item__cell');// ячейки игры
+	var outResult = document.querySelector('h2');// вывод результата игры
 
 	document.querySelector('.container').addEventListener('click', function(event) {
 		// проверка на нажатие самой ячейки
@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 			// проверка на конец игры
 			if(end == true) {
 				// перезапуск игры
-				for(let i = 0; i < cells.length; i++) {
+				for(var i = 0; i < cells.length; i++) {
 					cells[i].innerHTML = '';
 					cells[i].classList.remove('item__cell_selected');
 				}
@@ -60,7 +60,7 @@ window.addEventListener('load', function() {
 	function stepBot() {
 		// получаем случайное число и после заполняем ячейку свободную, если такая заполнина
 		// тогда ещё раз запускаем функцию
-		let rand = getRandomInt(0, 8);
+		var rand = getRandomInt(0, 8);
 
 		if(cells[rand].classList.contains('item__cell_selected')) {
 			stepBot();
